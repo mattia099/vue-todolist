@@ -2,7 +2,11 @@
 const app = new Vue({
     el : '#app',
     data : {
-        newTodo: '',
+        newTodo:{
+            text : '',
+            done : 'false',
+        },
+
         todoList: [
             {
                 text : 'Fare la spesa',
@@ -22,9 +26,9 @@ const app = new Vue({
     },
     methods : {
         addTodo(){
-            if( this.newTodo !== ''){ //se è uguale a stringa vuota non aggiungo elementi alla lista
+            if( this.newTodo.text !== ''){ //se è uguale a stringa vuota non aggiungo elementi alla lista
                 this.todoList.push ( this.newTodo );
-                this.newTodo = '';
+                this.text = '';
             }
         },
             
@@ -34,6 +38,7 @@ const app = new Vue({
         },
         
         doneEvent(i){
+            console.log(i)
             i=true;
             console.log(i)
         },
