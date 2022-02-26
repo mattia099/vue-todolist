@@ -2,11 +2,7 @@
 const app = new Vue({
     el : '#app',
     data : {
-        newTodo:{
-            text : '',
-            done : 'false',
-        },
-
+        newTodo: '',
         todoList: [
             {
                 text : 'Fare la spesa',
@@ -26,11 +22,16 @@ const app = new Vue({
     },
     methods : {
         addTodo(){
-            if( this.newTodo.text !== ''){ //se è uguale a stringa vuota non aggiungo elementi alla lista
-                this.todoList.push ( this.newTodo );
-                this.text = '';
-            }
+            if( this.newTodo !== '' ){
+                this.todoList.push( {
+                                        text : this.newTodo,
+                                        done : false,
+                                    }
+                )
+                this.newTodo = '';
+                }
         },
+   
             
         deleteTodo(i){
             console.log(i);
