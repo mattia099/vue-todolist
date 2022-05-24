@@ -17,15 +17,16 @@
             <input type="text" v-model="newTodo" @keyup.enter="addTodo">
             <input type="button" value="add" @click="addTodo" >
         </div>
-    
-
+        
+        <h1 class="title">TODO-LIST</h1>
+        
         <div class="list-wrapper">
+            
             <ul class="todo-list">
-                <li class="todo" v-for="(el,index) in todoList" @click="doneEvent(el.done)">
+                <li class="todo" v-for="(el,index) in todoList" @click="doneEvent(index)">
                     <span :class=" el.done == true ? 'line-through' : '' "> {{ el.text }} </span>
                     <i class="fa-solid fa-xmark" @click="deleteTodo(index)"></i>
                 </li>
-                
             </ul>
         </div>
         
